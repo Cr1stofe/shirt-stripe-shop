@@ -2,6 +2,7 @@ import Image from 'next/image'
 import './globals.css'
 import { Roboto_Flex as Roboto } from 'next/font/google'
 import logoImg from '../assets/logo.svg'
+import Link from 'next/link'
 
 const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' })
 
@@ -18,10 +19,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.variable} bg-gray-900 font-sans text-gray-100`}>
+
+        {/* Container principal */}
         <main className="flex flex-col items-start justify-center min-h-screen">
+
+          {/* Navbar */}
           <header className="p-8 w-full mx-auto my-0 max-w-[1376px]">
-            <Image src={logoImg} alt='' />
+            <Link href="/"> <Image src={logoImg} alt='' className='cursor-pointer'/> </Link>
           </header>
+          
             {children}          
         </main>
       </body>
