@@ -1,4 +1,6 @@
+import { CheckoutButton } from "@/components/CheckoutButton";
 import { stripe } from "@/lib/stripe";
+import axios from "axios";
 import Image from "next/image"
 import Stripe from "stripe";
 
@@ -9,7 +11,6 @@ interface ProductProps {
 }
 
 export default async function Product({ params }: ProductProps) {
-
   async function getProductProps() {
     const productId = params.id;
 
@@ -27,7 +28,8 @@ export default async function Product({ params }: ProductProps) {
         style: 'currency',
         currency: 'BRL',
       }).format((price.unit_amount as number) / 100),
-      description: product.description
+      description: product.description,
+      defaultPriceId: price.id,
     }
   }
 
@@ -50,9 +52,7 @@ export default async function Product({ params }: ProductProps) {
 
         <p className="text-md text-gray-100 md:mt-10"> {product.description} </p>
 
-        <button className="bg-green-500 px-8 py-5 rounded-lg text-gray-100 font-bold text-md transition duration-100 hover:bg-green-300 md:mt-auto">
-          Comprar agora
-        </button>
+        <CheckoutButton priceId={product.defaultPriceId} />
       </div>
     </main>
   )

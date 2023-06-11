@@ -21,10 +21,10 @@ export default function RootLayout({
       <body className={`${roboto.variable} bg-gray-900 font-sans text-gray-100`}>
 
         {/* Container principal */}
-        <main className="flex flex-col items-start justify-center min-h-screen">
+        <main className="flex flex-col items-center justify-start min-h-screen">
 
           {/* Navbar */}
-          <header className="p-8 w-full mx-auto my-0 max-w-[1376px]">
+          <header className="p-8 w-full mx-auto my-0 max-w-[1376px] top-4">
             <Link href="/"> <Image src={logoImg} alt='' className='cursor-pointer'/> </Link>
           </header>
           
