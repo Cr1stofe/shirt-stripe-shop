@@ -1,6 +1,5 @@
 import { CheckoutButton } from "@/components/CheckoutButton";
 import { stripe } from "@/lib/stripe";
-import axios from "axios";
 import Image from "next/image"
 import Stripe from "stripe";
 
